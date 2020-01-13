@@ -1,0 +1,25 @@
+{
+  "name": "unc-homework-07",
+  "version": "1.0.0",
+  "description": "ES6 and NodeJS Command Line tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/travis-john/unc-homework-07.git"
+  },
+  "author": "Travis John",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/travis-john/unc-homework-07/issues"
+  },
+  "homepage": "https://github.com/travis-john/unc-homework-07#readme",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "github-scraper": "^6.8.0",
+    "html-pdf": "^2.2.0",
+    "inquirer": "^7.0.3"
+  }
+}
