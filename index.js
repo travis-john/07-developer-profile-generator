@@ -34,12 +34,15 @@ function askUser() {
       ]
     }
   ]);
-  console.log(answers);
 }
 
 async function init() {
   try {
     const answers = await askUser();
+    const queryURL = `https://api.github.com/users/${answers.github}`;
+    const queryURLStar = `https://api.github.com/users/${answers.github}/starred`;
+    const response = await axios.get(queryURL);
+    const responseStar = await axios.get(queryURLStar);
   }
   catch (err) {
     console.log(err);

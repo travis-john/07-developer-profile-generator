@@ -153,7 +153,7 @@ function generateHTML(data) {
            color: ${colors[data.color].headerColor};
            margin: 20px;
          }
-         
+
          .col {
          flex: 1;
          text-align: center;
@@ -165,10 +165,10 @@ function generateHTML(data) {
          font-weight: bold;
          }
 
-         @media print { 
-          body { 
-            zoom: .75; 
-          } 
+         @media print {
+          body {
+            zoom: .75;
+          }
          }
       </style>`
         }
