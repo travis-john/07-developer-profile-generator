@@ -39,8 +39,8 @@ function askUser() {
 async function init() {
   try {
     const answers = await askUser();
-    const queryURL = `https://api.github.com/users/${answers.github}`;
-    const queryURLStar = `https://api.github.com/users/${answers.github}/starred`;
+    const queryURL = `https://api.github.com/users/${answers.username}`;
+    const queryURLStar = `https://api.github.com/users/${answers.username}/starred`;
     const response = await axios.get(queryURL);
     const responseStar = await axios.get(queryURLStar);
   }
