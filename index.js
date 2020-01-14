@@ -7,25 +7,25 @@ const fs = require('fs'),
       githubScraper = require('github-scraper'),
       generateHTML = require('./assets/js/generate-html.js'),
       writeFileAsync = util.promisify(fs.writeFile),
-      githubAsync = util.promisify(githubScraper);
+      readFileAsync = util.promisify(fs.readFile);
 
 //inquirer function
 function askUser() {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'What is your Name?',
-      answers: 'name'
+      message: 'What is your Name?',
+      name: 'name'
     },
     {
       type: 'input',
-      name: 'What is your Github username?',
+      message: 'What is your Github username?',
       answers: 'username'
     },
     {
       type: 'list',
-      name: 'Pick a profile color',
-      answers: 'color',
+      message: 'Pick a profile color',
+      name: 'color',
       choices: [
         'green',
         'blue',
