@@ -4,7 +4,6 @@ const fs = require('fs'),
       axios = require('axios'),
       inquirer = require('inquirer'),
       htmlPDF = require('html-pdf'),
-      githubScraper = require('github-scraper'),
       generateHTML = require('./assets/js/generate-html.js'),
       writeFileAsync = util.promisify(fs.writeFile),
       readFileAsync = util.promisify(fs.readFile);
@@ -43,6 +42,7 @@ async function init() {
     const queryURLStar = `https://api.github.com/users/${answers.username}/starred`;
     const response = await axios.get(queryURL);
     const responseStar = await axios.get(queryURLStar);
+    const html = generateHTML(answers, response, responseStar);
   }
   catch (err) {
     console.log(err);
