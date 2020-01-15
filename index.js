@@ -46,7 +46,7 @@ async function init() {
     const queryURL = `https://api.github.com/users/${answers.username}`;
     const queryURLStar = `https://api.github.com/users/${answers.username}/starred`;
     const response = await axios.get(queryURL);
-    console.log(response)
+    // console.log(response)
     const responseStar = await axios.get(queryURLStar);
     // console.log(responseStar)
     const html = generateHTML(answers, response, responseStar);
