@@ -48,6 +48,7 @@ async function init() {
     const response = await axios.get(queryURL);
     console.log(response)
     const responseStar = await axios.get(queryURLStar);
+    // console.log(responseStar)
     const html = generateHTML(answers, response, responseStar);
     await writeFileAsync(`./assets/html/${answers.username}.html`, html);
     console.log('Successfully wrote html file');
