@@ -176,22 +176,22 @@ function generateHTML(data) {
       <div class="wrapper">
         <div class="container">
           <div class="photo-header">
-            <img src="${response.profileimage}" alt="image">
+            <img src="${data.profileimage}" alt="image">
             <h1>Hi!</h1>
-            <h2>My name is ${answers.userName}</h2>
-            <h5 class = "company">Currently @ ${response.company}</h5>
+            <h2>My name is ${data.userName}</h2>
+            <h5 class = "company">Currently @ ${data.company}</h5>
             <div class="links-nav">
               <div class="nav-link">
               <i class="fas fa-location-arrow"></i>
-              <a href="https://www.google.com/maps/place/${response.location}">${response.location}</a>
+              <a href="https://www.google.com/maps/place/${data.location}">${data.location}</a>
               </div>
               <div class="nav-link">
                 <i class="fab fa-github-alt"></i>
-                <a href="${response.avatar_url}">GitHub</a>
+                <a href="${data.avatar_url}">GitHub</a>
               </div>
               <div class="nav-link">
                 <i class="fas fa-blog"></i>
-                <a href="${response.blog}">Blog</a>
+                <a href="${data.blog}">Blog</a>
               </div>
             </div>
           </div>
@@ -200,28 +200,28 @@ function generateHTML(data) {
           <div class="container">
             <div class="row">
               <div class="col">
-                <h2>${response.bio}</h2>
+                <h2>${data.bio}</h2>
               </div>
             </div>
             <div class="row">
               <div class="card col">
                 <h2>Public Repositories</h2>
-                <h3>${response.public_repos}</h3>
+                <h3>${data.public_repos}</h3>
               </div>
               <div class="card col">
                 <h2>Followers</h2>
-                <h3>${response.followers}</h3>
+                <h3>${data.followers}</h3>
               </div>
             </div>
             <div class="row">
               <div class="card col">
                 <h2>GitHub Stars</h2>
                 <!--arbitrary value-->
-                <h3>${response.starred_url}</h3>
+                <h3>${data.starred_url}</h3>
               </div>
               <div class="card col">
                 <h2>Following</h2>
-                <h3>${response.following}</h3>
+                <h3>${data.following}</h3>
               </div>
             </div>
           </div>
