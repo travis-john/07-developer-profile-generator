@@ -49,7 +49,7 @@ async function init() {
     // console.log(response)
     const responseStar = await axios.get(queryURLStar);
     // console.log(responseStar)
-    const html = generateHTML(answers, response, responseStar);
+    const html = generateHTML(answers, response);
     await writeFileAsync(`./assets/html/${answers.username}.html`, html);
     console.log('Successfully wrote html file');
     htmlPDF.create(html, options).toFile(`./assets/pdf/${answers.username}.pdf`, function(err, res){

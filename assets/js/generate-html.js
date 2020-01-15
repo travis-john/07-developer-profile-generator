@@ -176,9 +176,9 @@ function generateHTML(data) {
       <div class="wrapper">
         <div class="container">
           <div class="photo-header">
-            <img src="${data.profileimage}" alt="image">
+            <img src="${[data.response].profileimage}" alt="image">
             <h1>Hi!</h1>
-            <h2>My name is ${data.userName}</h2>
+            <h2>My name is ${data.name}</h2>
             <h5 class = "company">Currently @ ${data.company}</h5>
             <div class="links-nav">
               <div class="nav-link">
