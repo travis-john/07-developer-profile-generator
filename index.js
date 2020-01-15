@@ -45,11 +45,11 @@ async function init() {
     const answers = await askUser();
     const queryURL = `https://api.github.com/users/${answers.username}`;
     const queryURLStar = `https://api.github.com/users/${answers.username}/starred`;
-    const response = await axios.get(queryURL);
+    const profile = await axios.get(queryURL);
     // console.log(response)
-    const responseStar = await axios.get(queryURLStar);
+    const stars = await axios.get(queryURLStar);
     // console.log(responseStar)
-    const html = generateHTML(answers, response);
+    const html = generateHTML(answers, profile, stars);
     await writeFileAsync(`./assets/html/${answers.username}.html`, html);
     console.log('Successfully wrote html file');
     htmlPDF.create(html, options).toFile(`./assets/pdf/${answers.username}.pdf`, function(err, res){

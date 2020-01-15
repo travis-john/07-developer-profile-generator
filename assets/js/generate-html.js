@@ -25,7 +25,7 @@ const colors = {
   }
 };
 
-function generateHTML(data) {
+function generateHTML(data, profile, stars) {
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -47,9 +47,6 @@ function generateHTML(data) {
          html, body {
          padding: 0;
          margin: 0;
-         }
-         html, body, .wrapper {
-         height: 100%;
          }
          .wrapper {
          background-color: ${colors[data.color].wrapperBackground};
@@ -176,22 +173,22 @@ function generateHTML(data) {
       <div class="wrapper">
         <div class="container">
           <div class="photo-header">
-            <img src="${[data.response].profileimage}" alt="image">
+            <img src="${profile.data.avatar_url}" alt="image">
             <h1>Hi!</h1>
             <h2>My name is ${data.name}</h2>
-            <h5 class = "company">Currently @ ${data.company}</h5>
+            <h5 class = "company">Currently @ ${profile.data.company}</h5>
             <div class="links-nav">
               <div class="nav-link">
               <i class="fas fa-location-arrow"></i>
-              <a href="https://www.google.com/maps/place/${data.location}">${data.location}</a>
+              <a href="https://www.google.com/maps/place/${profile.data.location}">${profile.data.location}</a>
               </div>
               <div class="nav-link">
                 <i class="fab fa-github-alt"></i>
-                <a href="${data.avatar_url}">GitHub</a>
+                <a href="${profile.data.url}">GitHub</a>
               </div>
               <div class="nav-link">
                 <i class="fas fa-blog"></i>
-                <a href="${data.blog}">Blog</a>
+                <a href="${profile.data.blog}">Blog</a>
               </div>
             </div>
           </div>
@@ -200,28 +197,28 @@ function generateHTML(data) {
           <div class="container">
             <div class="row">
               <div class="col">
-                <h2>${data.bio}</h2>
+                <h2>${profile.data.bio}</h2>
               </div>
             </div>
             <div class="row">
               <div class="card col">
                 <h2>Public Repositories</h2>
-                <h3>${data.public_repos}</h3>
+                <h3>${profile.data.public_repos}</h3>
               </div>
               <div class="card col">
                 <h2>Followers</h2>
-                <h3>${data.followers}</h3>
+                <h3>${profile.data.followers}</h3>
               </div>
             </div>
             <div class="row">
               <div class="card col">
                 <h2>GitHub Stars</h2>
                 <!--arbitrary value-->
-                <h3>${data.starred_url}</h3>
+                <h3>${stars.data.length}</h3>
               </div>
               <div class="card col">
                 <h2>Following</h2>
-                <h3>${data.following}</h3>
+                <h3>${profile.data.following}</h3>
               </div>
             </div>
           </div>
