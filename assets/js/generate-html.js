@@ -1,3 +1,4 @@
+//global color variables
 const colors = {
   green: {
     wrapperBackground: "#E6E1C3",
@@ -25,6 +26,7 @@ const colors = {
   }
 };
 
+// function to generate HTML using data from Inquirer and Github
 function generateHTML(data) {
   return `<!DOCTYPE html>
 <html lang="en">

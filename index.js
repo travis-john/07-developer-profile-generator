@@ -40,14 +40,22 @@ function askUser() {
   ]);
 }
 
+//function that is actually run in the terminal
 async function init() {
   try {
+    //storing answers from Inquirer as variable object
     const answers = await askUser();
+
+    //using Inquirer response to make queryURLs
     const queryURL = `https://api.github.com/users/${answers.username}`;
     const queryURLStar = `https://api.github.com/users/${answers.username}/starred`;
+
+    //using stored QueryURLs to make API calls using Axios
     const profile = await axios.get(queryURL);
     // console.log(profile)
     const stars = await axios.get(queryURLStar);
+
+    //storing all data variables as one large data object
     const data = {
       color: answers.color,
       answers: answers,
@@ -55,9 +63,15 @@ async function init() {
       stars: stars
     }
     // console.log(data)
+
+    //calling generateHTML function from the outside JS file
     const html = generateHTML(data);
+
+    //using the generated HTML to write HTML file and logging success
     await writeFileAsync(`./assets/html/${answers.username}.html`, html);
     console.log('Successfully wrote html file');
+
+    //using html-pdf to use the generated HTML file to write a PDF file and logging success
     htmlPDF.create(html, options).toFile(`./assets/pdf/${answers.username}.pdf`, function(err, res){
       if(err){
         console.log(err)
