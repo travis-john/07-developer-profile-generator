@@ -46,10 +46,16 @@ async function init() {
     const queryURL = `https://api.github.com/users/${answers.username}`;
     const queryURLStar = `https://api.github.com/users/${answers.username}/starred`;
     const profile = await axios.get(queryURL);
-    // console.log(response)
+    // console.log(profile)
     const stars = await axios.get(queryURLStar);
-    // console.log(responseStar)
-    const html = generateHTML(answers, profile, stars);
+    const data = {
+      color: answers.color,
+      answers: answers,
+      profile: profile,
+      stars: stars
+    }
+    // console.log(data)
+    const html = generateHTML(data);
     await writeFileAsync(`./assets/html/${answers.username}.html`, html);
     console.log('Successfully wrote html file');
     htmlPDF.create(html, options).toFile(`./assets/pdf/${answers.username}.pdf`, function(err, res){
