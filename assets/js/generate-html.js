@@ -228,6 +228,7 @@ function generateHTML(data) {
       </div>
     </body>
     </html>`
+
         }
 
   module.exports = generateHTML;

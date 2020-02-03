@@ -11,7 +11,9 @@ const fs = require('fs'),
         type: 'pdf'
       }
       writeFileAsync = util.promisify(fs.writeFile),
-      readFileAsync = util.promisify(fs.readFile);
+      readFileAsync = util.promisify(fs.readFile),
+      htmlPath = './assets/html/',
+      pdfPath = './assets/pdf/';
 
 //inquirer function
 function askUser() {
@@ -52,7 +54,7 @@ async function init() {
 
     //using stored QueryURLs to make API calls using Axios
     const profile = await axios.get(queryURL);
-    // console.log(profile)
+    console.log(profile)
     const stars = await axios.get(queryURLStar);
 
     //storing all data variables as one large data object
